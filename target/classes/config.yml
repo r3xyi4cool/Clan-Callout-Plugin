@@ -1,0 +1,33 @@
+name: ClanCallout
+version: 1.0.0
+main: me.rexyiscool.clanCallout.ClanCallout
+api-version: 1.13
+depend: [UltimateClans]
+author: rexyiscool
+description: Clan callout system for UltimateClans
+
+commands:
+  callout:
+    description: Send a callout message to your clan members
+    usage: /<command> <message>
+
+  calloutreload:
+    description: Reload the ClanCallout configuration
+    usage: /<command>
+    permission: callout.admin
+
+permissions:
+  callout.admin:
+    description: Allows reloading the ClanCallout configuration
+    default: op
+
+callout-title: "§c⚠ CLAN CALLOUT ⚠"
+message-color: "§e"
+title-fade-in: 10    # 0.5 seconds
+title-stay: 70       # 3.5 seconds
+title-fade-out: 20   # 1 second
+callout-sent:
+  - ""
+  - "&a&lCALLOUT SENT!"
+  - "&7Message sent to &e%count%&7 clan member(s)"
+  - ""

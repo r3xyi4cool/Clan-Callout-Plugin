@@ -1,0 +1,4 @@
+me\rexyiscool\clanCallout\ClanCallout.class
+me\rexyiscool\clanCallout\commands\CalloutCommand.class
+me\rexyiscool\clanCallout\manager\CalloutManager.class
+me\rexyiscool\clanCallout\commands\CalloutReloadCommand.class
