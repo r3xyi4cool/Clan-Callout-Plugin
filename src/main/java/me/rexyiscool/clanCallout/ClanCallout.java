@@ -122,17 +122,13 @@ public final class ClanCallout extends JavaPlugin {
     }
 
     private void enableMessage() {
-        consoleMessage(ChatColor.AQUA + "+-----------------------------+");
-        consoleMessage(ChatColor.AQUA + "|" + ChatColor.DARK_BLUE + "    ClanCallout V 1.0.0    " + ChatColor.AQUA + "|");
-        consoleMessage(ChatColor.GREEN + "|" + ChatColor.DARK_GREEN + "   Developed by rexyiscool  " + ChatColor.AQUA + "|");
-        consoleMessage(ChatColor.AQUA + "+-----------------------------+");
+        consoleMessage(ChatColor.RED + "ClanCallout V 1.0.0");
+        consoleMessage(ChatColor.GREEN + "Developed By rexyiscool");
     }
 
     private void disableMessage() {
-        consoleMessage(ChatColor.RED + "+-----------------------------+");
-        consoleMessage(ChatColor.RED + "| Disabling ClanCallout...    |");
-        consoleMessage(ChatColor.RED + "| ClanCallout Disabled        |");
-        consoleMessage(ChatColor.RED + "+-----------------------------+");
+        consoleMessage(ChatColor.RED + "Disabling ClanCallout...");
+        consoleMessage(ChatColor.RED + "ClanCallout Disabled");
     }
 
     private void consoleMessage(String message) {
