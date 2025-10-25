@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ClanCallout.iml" filepath="$PROJECT_DIR$/ClanCallout.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UClansAddons.iml" filepath="$PROJECT_DIR$/UClansAddons.iml" />
     </modules>
   </component>
 </project>

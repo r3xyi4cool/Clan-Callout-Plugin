@@ -1,14 +1,14 @@
-package me.rexyiscool.clanCallout.commands;
+package me.rexyiscool.uclansAddons.commands;
 
-import me.rexyiscool.clanCallout.ClanCallout;
+import me.rexyiscool.uclansAddons.UClansAddons;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
 public class CalloutReloadCommand implements CommandExecutor {
-    private final ClanCallout plugin;
+    private final UClansAddons plugin;
 
-    public CalloutReloadCommand(ClanCallout plugin) {
+    public CalloutReloadCommand(UClansAddons plugin) {
         this.plugin = plugin;
     }
 

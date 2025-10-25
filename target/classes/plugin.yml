@@ -1,6 +1,6 @@
-name: ClanCallout
+name: UClansAddons
 version: 1.0.0
-main: me.rexyiscool.clanCallout.ClanCallout
+main: me.rexyiscool.uclansAddons.UClansAddons
 api-version: 1.13
 depend: [UltimateClans]
 author: rexyiscool
@@ -15,6 +15,9 @@ commands:
     description: Reload the ClanCallout configuration
     usage: /<command>
     permission: callout.admin
+  clanonline:
+    description: Give the Clan Tag with the number of players online
+    usage: /<command> <page>
 
 permissions:
   callout.admin:

@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>me.rexyiscool</groupId>
-    <artifactId>ClanCallout</artifactId>
+    <artifactId>UClansAddons</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
-    <name>ClanCallout</name>
+    <name>UClansAddons</name>
 
     <properties>
         <java.version>21</java.version>

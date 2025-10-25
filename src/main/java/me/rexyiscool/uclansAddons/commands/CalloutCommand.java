@@ -1,7 +1,7 @@
-package me.rexyiscool.clanCallout.commands;
+package me.rexyiscool.uclansAddons.commands;
 
-import me.rexyiscool.clanCallout.ClanCallout;
-import me.rexyiscool.clanCallout.manager.CalloutManager;
+import me.rexyiscool.uclansAddons.UClansAddons;
+import me.rexyiscool.uclansAddons.manager.CalloutManager;
 import me.ulrich.clans.data.ClanData;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -11,10 +11,10 @@ import org.bukkit.entity.Player;
 import java.util.Optional;
 
 public class CalloutCommand implements CommandExecutor {
-    private final ClanCallout plugin;
+    private final UClansAddons plugin;
     private final CalloutManager calloutManager;
 
-    public CalloutCommand(ClanCallout plugin, CalloutManager calloutManager) {
+    public CalloutCommand(UClansAddons plugin, CalloutManager calloutManager) {
         this.plugin = plugin;
         this.calloutManager = calloutManager;
     }

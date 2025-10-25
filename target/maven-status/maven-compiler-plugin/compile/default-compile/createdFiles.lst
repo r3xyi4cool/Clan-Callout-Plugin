@@ -1,4 +1,6 @@
-me\rexyiscool\clanCallout\ClanCallout.class
-me\rexyiscool\clanCallout\commands\CalloutCommand.class
-me\rexyiscool\clanCallout\manager\CalloutManager.class
-me\rexyiscool\clanCallout\commands\CalloutReloadCommand.class
+me\rexyiscool\uclansAddons\manager\CalloutManager.class
+me\rexyiscool\uclansAddons\UClansAddons.class
+me\rexyiscool\uclansAddons\commands\CalloutReloadCommand.class
+me\rexyiscool\uclansAddons\manager\ClanOnlineManager.class
+me\rexyiscool\uclansAddons\commands\ClanOnlineCommand.class
+me\rexyiscool\uclansAddons\commands\CalloutCommand.class

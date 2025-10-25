@@ -1,11 +1,11 @@
-package me.rexyiscool.clanCallout;
+package me.rexyiscool.uclansAddons;
 
-import me.rexyiscool.clanCallout.commands.CalloutCommand;
-import me.rexyiscool.clanCallout.commands.CalloutReloadCommand;
-import me.rexyiscool.clanCallout.manager.CalloutManager;
+import me.rexyiscool.uclansAddons.commands.CalloutCommand;
+import me.rexyiscool.uclansAddons.commands.CalloutReloadCommand;
+import me.rexyiscool.uclansAddons.commands.ClanOnlineCommand;
+import me.rexyiscool.uclansAddons.manager.CalloutManager;
+import me.rexyiscool.uclansAddons.manager.ClanOnlineManager;
 import me.ulrich.clans.Clans;
-import me.ulrich.clans.api.ClanAPIManager;
-import me.ulrich.clans.api.PlayerAPIManager;
 import me.ulrich.clans.interfaces.ClanAPI;
 import me.ulrich.clans.interfaces.PlayerAPI;
 import org.bukkit.Bukkit;
@@ -13,10 +13,11 @@ import org.bukkit.ChatColor;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class ClanCallout extends JavaPlugin {
+public final class UClansAddons extends JavaPlugin {
 
-    private static ClanCallout instance;
+    private static UClansAddons instance;
     private CalloutManager calloutManager;
+    private ClanOnlineManager clanOnlineManager;
     private ClanAPI clanAPI;
     private PlayerAPI playerAPI;
 
@@ -114,39 +115,42 @@ public final class ClanCallout extends JavaPlugin {
 
     private void setupManager() {
         this.calloutManager = new CalloutManager(this, clanAPI, playerAPI);
+        this.clanOnlineManager = new ClanOnlineManager((Clans) getServer().getPluginManager().getPlugin("UltimateClans"));
     }
 
     private void registerCommands() {
         this.getCommand("callout").setExecutor(new CalloutCommand(this, calloutManager));
         getCommand("calloutreload").setExecutor(new CalloutReloadCommand(this));
+        getCommand("clanonline").setExecutor(new ClanOnlineCommand(this,clanOnlineManager));
     }
 
     private void enableMessage() {
-        consoleMessage(ChatColor.RED + "ClanCallout V 1.0.0");
+        consoleMessage(ChatColor.RED + "UClansAddons V 1.0.0");
         consoleMessage(ChatColor.GREEN + "Developed By rexyiscool");
     }
 
     private void disableMessage() {
-        consoleMessage(ChatColor.RED + "Disabling ClanCallout...");
-        consoleMessage(ChatColor.RED + "ClanCallout Disabled");
+        consoleMessage(ChatColor.RED + "Disabling UClansAddons...");
+        consoleMessage(ChatColor.RED + "UClansAddons Disabled");
     }
 
     private void consoleMessage(String message) {
         Bukkit.getConsoleSender().sendMessage(message);
     }
 
-    public static ClanCallout getInstance() {
+    public static UClansAddons getInstance() {
         return instance;
     }
 
     public CalloutManager getCalloutManager() {
         return calloutManager;
     }
-
+    public ClanOnlineManager getClanOnlineManager(){
+        return clanOnlineManager;
+    }
     public ClanAPI getClanAPI() {
         return clanAPI;
     }
-
     public PlayerAPI getPlayerAPI() {
         return playerAPI;
     }

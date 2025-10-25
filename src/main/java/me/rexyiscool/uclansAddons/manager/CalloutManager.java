@@ -1,6 +1,6 @@
-package me.rexyiscool.clanCallout.manager;
+package me.rexyiscool.uclansAddons.manager;
 
-import me.rexyiscool.clanCallout.ClanCallout;
+import me.rexyiscool.uclansAddons.UClansAddons;
 import me.ulrich.clans.data.ClanData;
 import me.ulrich.clans.data.PlayerData;
 import me.ulrich.clans.interfaces.ClanAPI;
@@ -11,11 +11,11 @@ import java.util.Optional;
 import java.util.UUID;
 
 public class CalloutManager {
-    private final ClanCallout plugin;
+    private final UClansAddons plugin;
     private final ClanAPI clanAPI;
     private final PlayerAPI playerAPI;
 
-    public CalloutManager(ClanCallout plugin, ClanAPI clanAPI, PlayerAPI playerAPI) {
+    public CalloutManager(UClansAddons plugin, ClanAPI clanAPI, PlayerAPI playerAPI) {
         this.plugin = plugin;
         this.clanAPI = clanAPI;
         this.playerAPI = playerAPI;
