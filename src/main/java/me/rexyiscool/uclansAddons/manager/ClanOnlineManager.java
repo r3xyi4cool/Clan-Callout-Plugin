@@ -48,7 +48,7 @@ public class ClanOnlineManager {
     }
     private void sendHeader(Player player,int page,int tPages){
         player.sendMessage(ChatColor.GREEN+"● "+ChatColor.WHITE+
-                "ᴏɴʟɪɴᴇ ᴄʟᴀɴꜱ "+ChatColor.GRAY + "(" + page + "/" + tPages + ")");
+                "ᴏɴʟɪɴᴇ ᴄʟᴀɴꜱ ");
         player.sendMessage("");
     }
     private void displayClans(Player player,List<ClanData> clanWithOnline,int page){
@@ -60,7 +60,7 @@ public class ClanOnlineManager {
             int counter = getActualOnlineCount(clan);
             int totalMembers = clan.getMembers() != null ? clan.getMembers().size() : 0;
 
-            player.sendMessage(ChatColor.AQUA +" "+ clan.getTagNoColor() +
+            player.sendMessage(ChatColor.WHITE +" "+ clan.getTagNoColor() +
                     ChatColor.DARK_GRAY + " • " +
                     ChatColor.AQUA + counter +
                     ChatColor.AQUA + "/" +
