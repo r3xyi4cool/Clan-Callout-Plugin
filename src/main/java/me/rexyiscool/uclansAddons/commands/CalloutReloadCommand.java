@@ -1,15 +1,18 @@
 package me.rexyiscool.uclansAddons.commands;
 
 import me.rexyiscool.uclansAddons.UClansAddons;
+import me.rexyiscool.uclansAddons.manager.CooldownManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
 public class CalloutReloadCommand implements CommandExecutor {
     private final UClansAddons plugin;
+    private final CooldownManager cooldownManager;
 
-    public CalloutReloadCommand(UClansAddons plugin) {
+    public CalloutReloadCommand(UClansAddons plugin, CooldownManager cooldownManager) {
         this.plugin = plugin;
+        this.cooldownManager = cooldownManager;
     }
 
     @Override
@@ -21,7 +24,8 @@ public class CalloutReloadCommand implements CommandExecutor {
 
         try {
             plugin.reloadConfig();
-            sender.sendMessage("§7ClanCallout configuration Reloaded.");
+            cooldownManager.clearAllCooldowns();
+            sender.sendMessage("§7ClanCallout configuration and CoolDown Reloaded.");
         } catch (Exception e) {
             sender.sendMessage("§cError reloading config: " + e.getMessage());
             e.printStackTrace();

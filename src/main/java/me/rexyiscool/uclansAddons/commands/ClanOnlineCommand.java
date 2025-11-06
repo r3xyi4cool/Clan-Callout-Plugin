@@ -1,6 +1,7 @@
 package me.rexyiscool.uclansAddons.commands;
 import me.rexyiscool.uclansAddons.UClansAddons;
 import me.rexyiscool.uclansAddons.manager.ClanOnlineManager;
+import me.rexyiscool.uclansAddons.manager.CooldownManager;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -23,6 +24,13 @@ public class ClanOnlineCommand implements CommandExecutor{
             return true;
         }
         Player player = (Player) sender;
+        int cooldownSeconds = plugin.getConfig().getInt("clanonline-cooldown-seconds", 30);
+        long timeLeft = CooldownManager.getCooldown(player, "clanonline", cooldownSeconds);
+        if (timeLeft > 0) {
+            player.sendMessage(ChatColor.RED + "Wait " + timeLeft + " seconds before using this command again!");
+            return true;
+        }
+
         int page = 1;
 
         if (args.length>0){
@@ -38,7 +46,7 @@ public class ClanOnlineCommand implements CommandExecutor{
             }
         }
         clanOnlineManager.displayPage(player,page);
-
+        CooldownManager.setCooldown(player, "clanonline");
         return true;
     }
 }

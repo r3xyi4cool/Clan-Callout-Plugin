@@ -5,6 +5,7 @@ import me.rexyiscool.uclansAddons.commands.CalloutReloadCommand;
 import me.rexyiscool.uclansAddons.commands.ClanOnlineCommand;
 import me.rexyiscool.uclansAddons.manager.CalloutManager;
 import me.rexyiscool.uclansAddons.manager.ClanOnlineManager;
+import me.rexyiscool.uclansAddons.manager.CooldownManager;
 import me.ulrich.clans.Clans;
 import me.ulrich.clans.interfaces.ClanAPI;
 import me.ulrich.clans.interfaces.PlayerAPI;
@@ -20,6 +21,7 @@ public final class UClansAddons extends JavaPlugin {
     private ClanOnlineManager clanOnlineManager;
     private ClanAPI clanAPI;
     private PlayerAPI playerAPI;
+    private CooldownManager cooldownManager;
 
     @Override
     public void onEnable() {
@@ -120,7 +122,7 @@ public final class UClansAddons extends JavaPlugin {
 
     private void registerCommands() {
         this.getCommand("callout").setExecutor(new CalloutCommand(this, calloutManager));
-        getCommand("calloutreload").setExecutor(new CalloutReloadCommand(this));
+        getCommand("calloutreload").setExecutor(new CalloutReloadCommand(this,cooldownManager));
         getCommand("clanonline").setExecutor(new ClanOnlineCommand(this,clanOnlineManager));
     }
 

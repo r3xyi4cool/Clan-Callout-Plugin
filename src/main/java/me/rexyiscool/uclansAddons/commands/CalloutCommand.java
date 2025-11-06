@@ -2,7 +2,9 @@ package me.rexyiscool.uclansAddons.commands;
 
 import me.rexyiscool.uclansAddons.UClansAddons;
 import me.rexyiscool.uclansAddons.manager.CalloutManager;
+import me.rexyiscool.uclansAddons.manager.CooldownManager;
 import me.ulrich.clans.data.ClanData;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -13,6 +15,7 @@ import java.util.Optional;
 public class CalloutCommand implements CommandExecutor {
     private final UClansAddons plugin;
     private final CalloutManager calloutManager;
+
 
     public CalloutCommand(UClansAddons plugin, CalloutManager calloutManager) {
         this.plugin = plugin;
@@ -26,6 +29,13 @@ public class CalloutCommand implements CommandExecutor {
             return true;
         }
         Player player = (Player) sender;
+
+        int calloutCooldown = plugin.getConfig().getInt("callout-cooldown-seconds", 300);
+        long timeLeft = CooldownManager.getCooldown(player, "callout", calloutCooldown);
+        if (timeLeft > 0) {
+            player.sendMessage(ChatColor.RED + "Wait " + timeLeft + " seconds before using this command again");
+            return true;
+        }
 
         if (!calloutManager.isInClan(player)) {
             player.sendMessage("§cJoin a clan to send callout messages!");
@@ -62,8 +72,10 @@ public class CalloutCommand implements CommandExecutor {
             player.sendMessage("§cNo other clan members are online to receive the callout!");
             return true;
         }
-
         int sentCount = calloutManager.sendCalloutMsg(player, clanData, message);
+
+        CooldownManager.setCooldown(player, "callout");
+
         for (String line : plugin.getConfig().getStringList("messages.callout-sent")) {
             player.sendMessage(line.replace("%count%", String.valueOf(sentCount))
                     .replace("&", "§"));
